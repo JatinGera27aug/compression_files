@@ -5,7 +5,8 @@ from datetime import datetime
 import gspread
 import json
 from google.oauth2.service_account import Credentials
-from oauth2client.service_account import ServiceAccountCredentials
+
+
 
 # Page setup
 st.set_page_config(page_title="Compress Your Questions", layout="centered", page_icon="🗜️")
