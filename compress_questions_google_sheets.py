@@ -3,6 +3,8 @@ import zlib
 import base64
 from datetime import datetime
 import gspread
+import json
+from google.oauth2.service_account import Credentials
 from oauth2client.service_account import ServiceAccountCredentials
 
 # Page setup
@@ -33,8 +35,10 @@ st.markdown("<h1 style='text-align: center;'>Compress Your Questions, Not Your C
 
 # Google Sheets setup
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+creds_dict = st.secrets["google_service_account"]
+creds = Credentials.from_service_account_info(creds_dict, scopes=scope)
 client = gspread.authorize(creds)
+
 
 # Open your sheet (REPLACE name with your sheet name)
 sheet = client.open("Compressed Questions Log").sheet1
