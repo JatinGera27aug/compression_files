@@ -3,5 +3,5 @@ services:
     name: compress-questions
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run app.py
+    startCommand: streamlit run compress_questions_google_sheets
     plan: free
